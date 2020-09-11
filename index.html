@@ -24,7 +24,7 @@
             emitevents="true"
             cursor="fuse: false; rayOrigin: mouse;"
         >
-            <a-marker preset="Hiro">
+            <a-marker preset="hiro">
                 <a-entity 
                     position="0 0 0" 
                     scale="2 2 2" 
@@ -43,10 +43,12 @@
 
         scene.addEventListener("markerFound", (e) => {
             isMarkerVisible = true;
+            console.log("markerFound")
         });
         
         scene.addEventListener("markerLost", (e) => {
             isMarkerVisible = false;
+            console.log("markerLost")
         });
 
         scene.addEventListener("onefingermove", (event) => {
