@@ -10,7 +10,7 @@
         id="scene" 
     >
         <a-marker preset="hiro">
-            <a-entity position="0 0 0" scale="2 2 2" gltf-model="https://rafalwozniak91.github.io/ar/cotterre.gltf">
+            <a-entity position="0 0 0" scale="5 5 5" gltf-model="https://rafalwozniak91.github.io/ar/cotterre.gltf">
             </a-entity>
         </a-marker>
         <a-entity camera></a-entity>
@@ -31,6 +31,12 @@
         });
 
         scene.addEventListener("onefingermove", (event) => {
+            if (isMarkerVisible) {
+                el.object3D.rotation.y += event.detail.positionChange.x * rotationFactor;
+                el.object3D.rotation.x += event.detail.positionChange.y * rotationFactor;
+            }
+        });
+        scene.addEventListener("mousemove", (event) => {
             if (isMarkerVisible) {
                 el.object3D.rotation.y += event.detail.positionChange.x * rotationFactor;
                 el.object3D.rotation.x += event.detail.positionChange.y * rotationFactor;
